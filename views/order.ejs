@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>izakaya_warikan</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
+    <link rel="stylesheet" href="assets/css/Article-Clean.css">
+    <link rel="stylesheet" href="assets/css/Article-List.css">
+    <link rel="stylesheet" href="assets/css/Newsletter-Subscription-Form.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/order_selection.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js" integrity="sha256-nWBTbvxhJgjslRyuAKJHK+XcZPlCnmIAAMixz6EefVk=" crossorigin="anonymous"></script>
+    <script language="javascript" type="text/javascript" src="assets/js/OrderABI.js"></script>
+    <script language="javascript" type="text/javascript" src="assets/js/mysample.js"></script>
+    <script>
+        var Tavern = new Tavern();
+        async function order(name, item_id, num, price) {
+            if (accounts) {
+                $('.modal').modal();
+                await make_order(item_id, num, price);
+                var group = $("#order_group").text();
+                Tavern.registration(group, name, price);
+            } else {
+                alert("Account not found.");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="article-list">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center">メニュー</h2>
+                <p class="text-center">クリプト居酒屋へようこそ！</p>
+                <p class="text-center">注文を選んでください</p>
+                <p class="text-center">注文グループ：<span id = "order_group"><%= order_group %></span></p>
+            </div>
+            <div class="row articles">
+                <div class="col-sm-6 col-md-4 item"><a href="javascript:order('ビール', 0, 1, 300);"><img class="img-fluid" src="assets/img/beer.jpg"></a>
+                    <h3 class="name">ビール</h3>
+                    <p class="description">とりあえず</p>
+                    <p class="description">価格：300wei</p><a class="action" href="javascript:order('ビール', 0, 1, 300);"><i class="fa fa-arrow-circle-right"></i></a></div>
+                <div class="col-sm-6 col-md-4 item"><a href="javascript:order('コーラ', 1, 1, 200);"><img class="img-fluid" src="assets/img/cola.jpg"></a>
+                    <h3 class="name">コーラ</h3>
+                    <p class="description">Delicious and Refreshing</p>
+                    <p class="description">価格：200wei</p><a class="action" href="javascript:order('コーラ', 1, 1, 200);"><i class="fa fa-arrow-circle-right"></i></a></div>
+                <div class="col-sm-6 col-md-4 item"><a href="javascript:alert('売り切れです！');"><img class="img-fluid" src="assets/img/tapioca.jpg"></a>
+                    <h3 class="name">タピオカ</h3>
+                    <p class="description">「タピる」「タピ活」</p>
+                    <p class="description">価格：450Libra</p><a class="action" href="javascript:alert('売り切れです！');"><i class="fa fa-arrow-circle-right"></i></a></div>
+                <div class="col"><a href="/order_history?order_group=<%= order_group %>">注文履歴はこちら</a></div>
+            </div>
+        </div>
+    </div>
+    <div id="modal_b" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" data-backdrop="static">
+        <div class="modal-dialog modal-sm"></div>
+    </div>    
+</body>
+
+</html>
