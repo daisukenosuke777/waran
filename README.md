@@ -4,7 +4,7 @@ http://www.waran.tokyo/
 
   
 # 動作環境
-Ethereum network  : Ropsen  
+Ethereum network  : Ropsten  
 PCの場合           : Chrome + Metamask  
 Mobileの場合       : Cipher  
 
