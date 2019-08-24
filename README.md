@@ -6,7 +6,7 @@ http://www.waran.tokyo/
 # 動作環境
 Ethereum network  : Ropsen  
 PCの場合           : Chrome + Metamask  
-Mobileの場合       : cipher  
+Mobileの場合       : Cipher  
 
   
 # 「WARAN」の概要
