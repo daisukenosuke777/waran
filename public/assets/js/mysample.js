@@ -10,6 +10,7 @@ window.addEventListener('load', async() => {
   console.log(web3);
   if(typeof web3 !== 'undefined') {
     web3js = new Web3(web3.currentProvider);
+    await window.ethereum.enable();
   } else {
     alert('install MetaMask');
   }
